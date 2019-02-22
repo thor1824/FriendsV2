@@ -44,11 +44,10 @@ public class Friends {
 	public String[] getNames()
 	{
 		String[] res = new String[m_friends.size()];
-		for (int i=0; i < res.length; i++) {
+		for (int i = 0; i < res.length; i++) {
 			res[i] = m_friends.get(i).getName();
 		}
 		return res;
 	}
-	
-	
+
 }

@@ -6,9 +6,16 @@ import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
+import dk.easv.friendsv2.Model.BEFriend;
+
 public class DetailActivity extends AppCompatActivity {
 
     String TAG = MainActivity.TAG;
+
+    EditText etName;
+    EditText etPhone;
+    CheckBox cbFavorite;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +23,20 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         Log.d(TAG, "Detail Activity started");
 
-        EditText etName = findViewById(R.id.etName);
-        EditText etPhone = findViewById(R.id.etPhone);
-        CheckBox cbFavorite = findViewById(R.id.cbFavorite);
+        etName = findViewById(R.id.etName);
+        etPhone = findViewById(R.id.etPhone);
+        cbFavorite = findViewById(R.id.cbFavorite);
 
         Bundle extras = getIntent().getExtras();
-        etName.setText(extras.get("name").toString());
-        etPhone.setText(extras.get("phone").toString());
-        cbFavorite.setChecked((boolean)extras.get("favorite"));
+        setGUI(extras);
 
+
+    }
+
+    private void setGUI(Bundle data)
+    {
+        etName.setText(data.get("name").toString());
+        etPhone.setText(data.get("phone").toString());
+        cbFavorite.setChecked((boolean)data.get("favorite"));
     }
 }

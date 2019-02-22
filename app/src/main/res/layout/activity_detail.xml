@@ -9,10 +9,10 @@
 
     <TextView
         android:id="@+id/tvHeader"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Detail"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         style="@style/Base.TextAppearance.AppCompat.Large"/>
 
     <TableLayout
@@ -20,7 +20,7 @@
         android:layout_height="fill_parent" >
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dip" >
 
@@ -58,6 +58,23 @@
                 android:checked="false" />
         </TableRow>
 
+        <!--
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dip" >
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:text="Cancel"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btnOk"
+                android:text="OK"
+                android:layout_gravity="center"/>
+        </TableRow>
+        -->
     </TableLayout>
 
 

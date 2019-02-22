@@ -1,6 +1,8 @@
 package dk.easv.friendsv2.Model;
 
-public class BEFriend {
+import java.io.Serializable;
+
+public class BEFriend  {
 
     private String m_name;
     private String m_phone;

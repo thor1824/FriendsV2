@@ -46,12 +46,17 @@ public class MainActivity extends ListActivity {
         Intent x = new Intent(this, DetailActivity.class);
         Log.d(TAG, "Detail activity will be started");
         BEFriend friend = m_friends.getAll().get(position);
-        x.putExtra("name", friend.getName());
-        x.putExtra("phone", friend.getPhone());
-        x.putExtra("favorite", friend.isFavorite());
+        addData(x, friend);
         startActivity(x);
         Log.d(TAG, "Detail activity is started");
 
+    }
+
+    private void addData(Intent x, BEFriend f)
+    {
+        x.putExtra("name", f.getName());
+        x.putExtra("phone", f.getPhone());
+        x.putExtra("favorite", f.isFavorite());
     }
 
 
