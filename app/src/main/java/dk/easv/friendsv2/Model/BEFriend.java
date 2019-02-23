@@ -27,6 +27,8 @@ public class BEFriend  {
         return m_name;
     }
 
+    public void setName(String name) { m_name = name; }
+
     public Boolean isFavorite() { return m_isFavorite; }
 
 }
