@@ -16,6 +16,7 @@ import dk.easv.friendsv2.Model.Friends;
 public class MainActivity extends ListActivity {
 
     public static String TAG = "Friend2";
+    private final int REQUEST_CODE_DETAIL = 4;
 
     Friends m_friends;
 
@@ -47,8 +48,7 @@ public class MainActivity extends ListActivity {
         Log.d(TAG, "Detail activity will be started");
         BEFriend friend = m_friends.getAll().get(position);
         addData(x, friend, position);
-        //startActivity(x);
-        startActivityForResult(x, 4);
+        startActivityForResult(x, REQUEST_CODE_DETAIL);
         Log.d(TAG, "Detail activity is started");
     }
 
@@ -63,15 +63,14 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data )
     {
-        if (requestCode == 4)
-        {
-            switch (resultCode)
-            {
+        if (requestCode == REQUEST_CODE_DETAIL)
+            switch (resultCode) {
                 case RESULT_OK:
-                    updateFriend(data.getExtras().getInt("position"), data.getExtras().get("newname").toString());
+                    int position = data.getExtras().getInt("position");
+                    String newName = data.getExtras().get("newname").toString();
+                    updateFriend(position, newName);
                     break;
             }
-        }
     }
 
     private void updateFriend(int position, String newName)

@@ -34,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         position = (int)extras.get("position");
         setGUI(extras);
+
         findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +69,5 @@ public class DetailActivity extends AppCompatActivity {
         data.putExtra("newname", etName.getText().toString());
         setResult(RESULT_OK, data);
         finish();
-
-
     }
 }
