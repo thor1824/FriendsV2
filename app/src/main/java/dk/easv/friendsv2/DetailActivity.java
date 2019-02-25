@@ -1,10 +1,13 @@
 package dk.easv.friendsv2;
 
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import java.io.Serializable;
 
 import dk.easv.friendsv2.Model.BEFriend;
 
@@ -27,16 +30,17 @@ public class DetailActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         cbFavorite = findViewById(R.id.cbFavorite);
 
-        Bundle extras = getIntent().getExtras();
-        setGUI(extras);
+        setGUI();
 
 
     }
 
-    private void setGUI(Bundle data)
+    private void setGUI()
     {
-        etName.setText(data.get("name").toString());
-        etPhone.setText(data.get("phone").toString());
-        cbFavorite.setChecked((boolean)data.get("favorite"));
+        BEFriend f = (BEFriend) getIntent().getSerializableExtra("friend");
+
+        etName.setText(f.getName());
+        etPhone.setText(f.getPhone());
+        cbFavorite.setChecked(f.isFavorite());
     }
 }

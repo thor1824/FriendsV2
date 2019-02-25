@@ -1,8 +1,10 @@
 package dk.easv.friendsv2.Model;
 
+
+
 import java.io.Serializable;
 
-public class BEFriend  {
+public class BEFriend implements Serializable {
 
     private String m_name;
     private String m_phone;
@@ -28,5 +30,6 @@ public class BEFriend  {
     }
 
     public Boolean isFavorite() { return m_isFavorite; }
+
 
 }

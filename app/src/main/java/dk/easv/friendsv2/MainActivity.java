@@ -54,9 +54,7 @@ public class MainActivity extends ListActivity {
 
     private void addData(Intent x, BEFriend f)
     {
-        x.putExtra("name", f.getName());
-        x.putExtra("phone", f.getPhone());
-        x.putExtra("favorite", f.isFavorite());
+        x.putExtra("friend", f);
     }
 
 
