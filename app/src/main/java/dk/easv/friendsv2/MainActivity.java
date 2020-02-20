@@ -46,17 +46,31 @@ public class MainActivity extends ListActivity {
         Intent x = new Intent(this, DetailActivity.class);
         Log.d(TAG, "Detail activity will be started");
         BEFriend friend = m_friends.getAll().get(position);
-        addData(x, friend);
-        startActivity(x);
-        Log.d(TAG, "Detail activity is started");
+        x.putExtra("friend", friend);
+        x.putExtra("position", position);
+        startActivityForResult(x, 10);
 
     }
 
-    private void addData(Intent x, BEFriend f)
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        x.putExtra("friend", f);
+        Log.d(TAG, "onResult resultCode = " + resultCode);
+        if (resultCode == RESULT_OK) {
+            BEFriend upDatedFriend = (BEFriend)data.getExtras().getSerializable("updatedfriend");
+            int position = data.getExtras().getInt("position");
+
+            Log.d(TAG, "onResult pos = " + position + " name = " + upDatedFriend.getName());
+            m_friends.update(upDatedFriend,position);
+
+            ListAdapter adapter =
+                    new ArrayAdapter<String>(this,
+                            android.R.layout.simple_list_item_1,
+                            m_friends.getNames());
+
+            setListAdapter(adapter);
+        }
     }
-
-
 
 }
