@@ -8,22 +8,22 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import dk.easv.friendsv2.Model.BEFriend;
-import dk.easv.friendsv2.Model.Friends;
+import dk.easv.friendsv2.Helper.ExstraKeys;
+import dk.easv.friendsv2.Model.Friend;
+import dk.easv.friendsv2.Model.FriendRepo;
 
 public class MainActivity extends ListActivity {
 
     public static String TAG = "Friend2";
 
-    Friends m_friends;
+    FriendRepo m_friends;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setTitle("Friends v2");
-        m_friends = new Friends();
+        this.setTitle("FriendRepo v2");
+        m_friends = new FriendRepo();
 
         String[] friends;
 
@@ -45,9 +45,9 @@ public class MainActivity extends ListActivity {
 
         Intent x = new Intent(this, DetailActivity.class);
         Log.d(TAG, "Detail activity will be started");
-        BEFriend friend = m_friends.getAll().get(position);
-        x.putExtra("friend", friend);
-        x.putExtra("position", position);
+        Friend friend = m_friends.getAll().get(position);
+        x.putExtra(ExstraKeys.FRIEND, friend);
+        x.putExtra(ExstraKeys.FRIEND_POSITION, position);
         startActivityForResult(x, 10);
 
     }
@@ -58,8 +58,8 @@ public class MainActivity extends ListActivity {
     {
         Log.d(TAG, "onResult resultCode = " + resultCode);
         if (resultCode == RESULT_OK) {
-            BEFriend upDatedFriend = (BEFriend)data.getExtras().getSerializable("updatedfriend");
-            int position = data.getExtras().getInt("position");
+            Friend upDatedFriend = (Friend)data.getExtras().getSerializable(ExstraKeys.FRIEND_UPDATED);
+            int position = data.getExtras().getInt(ExstraKeys.FRIEND_POSITION);
 
             Log.d(TAG, "onResult pos = " + position + " name = " + upDatedFriend.getName());
             m_friends.update(upDatedFriend,position);

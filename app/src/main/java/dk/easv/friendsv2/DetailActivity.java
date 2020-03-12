@@ -1,17 +1,20 @@
 package dk.easv.friendsv2;
 
 import android.content.Intent;
-import android.os.Parcelable;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 
-import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 
-import dk.easv.friendsv2.Model.BEFriend;
+import dk.easv.friendsv2.Helper.ExstraKeys;
+import dk.easv.friendsv2.Model.Friend;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -19,10 +22,13 @@ public class DetailActivity extends AppCompatActivity {
 
     EditText etName;
     EditText etPhone;
+    EditText etUrl;
+    EditText etEmail;
     CheckBox cbFavorite;
+    ImageView ivProfile;
 
 
-    BEFriend m_friend;
+    Friend selectedFriend;
     int m_pos;
 
     @Override
@@ -33,11 +39,14 @@ public class DetailActivity extends AppCompatActivity {
 
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
+        etUrl = findViewById(R.id.etUrl);
+        etEmail = findViewById(R.id.etEmail);
+        ivProfile = findViewById(R.id.ivProfile);
         cbFavorite = findViewById(R.id.cbFavorite);
 
         setGUI();
 
-        m_pos = getIntent().getExtras().getInt("position");
+        m_pos = getIntent().getExtras().getInt(ExstraKeys.FRIEND_POSITION);
         findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,13 +63,16 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
-    private void setGUI()
-    {
-        m_friend = (BEFriend) getIntent().getSerializableExtra("friend");
+    private void setGUI() {
+        selectedFriend = (Friend) getIntent().getSerializableExtra(ExstraKeys.FRIEND);
 
-        etName.setText(m_friend.getName());
-        etPhone.setText(m_friend.getPhone());
-        cbFavorite.setChecked(m_friend.isFavorite());
+        etName.setText(selectedFriend.getName());
+        etPhone.setText(selectedFriend.getPhone());
+        etEmail.setText(selectedFriend.getEmail());
+        etUrl.setText(selectedFriend.getUrl());
+        //ivProfile.setImageURI(new Uri(""));
+        cbFavorite.setChecked(selectedFriend.isFavorite());
+
     }
 
     private void onClickCancel() {
@@ -69,12 +81,12 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void onClickOK() {
-      Intent result = new Intent();
+        Intent result = new Intent();
 
-      m_friend = new BEFriend(etName.getText().toString(), etPhone.getText().toString(), cbFavorite.isChecked());
-      result.putExtra("updatedfriend",m_friend );
-      result.putExtra("position", m_pos);
-      setResult(RESULT_OK, result);
-      finish();
+        selectedFriend = new Friend(etName.getText().toString(), etPhone.getText().toString(), cbFavorite.isChecked());
+        result.putExtra(ExstraKeys.FRIEND_UPDATED, selectedFriend);
+        result.putExtra(ExstraKeys.FRIEND_POSITION, m_pos);
+        setResult(RESULT_OK, result);
+        finish();
     }
 }
