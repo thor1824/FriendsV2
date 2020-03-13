@@ -22,7 +22,7 @@ public class MainActivity extends ListActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setTitle("FriendRepo v2");
+        this.setTitle("Friends v2");
         m_friends = new FriendRepo();
 
         String[] friends;

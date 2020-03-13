@@ -21,7 +21,7 @@ public class Friend implements Serializable {
         this.phone = phone;
         this.url = "https://placeholder.com/";
         this.imgUrl = "https://via.placeholder.com/300/09f/fff.png";
-        this.email = "placeholder@email.dk";
+        this.email = name + "@email.dk";
         this.isFavorite = isFavorite;
     }
 

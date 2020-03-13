@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity" android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvHeader"
@@ -12,147 +12,174 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Detail" /> //header
-
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_above="@id/table"
-        android:layout_below="@id/tvHeader"/> //detail picture
-
-    <TableLayout
-        android:id="@+id/table"
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:id="@+id/scrollViewMain"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvHeader">
+        android:layout_below="@id/tvHeader"
+        android:layout_above="@id/btnBottom">
 
-        <TableRow
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dip">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="0dp"
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitXY" />
+            //detail picture
+
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".30"
-                android:text="Name:" />
+                android:layout_below="@id/ivProfile">
 
-            <EditText
-                android:id="@+id/etName"
-                android:layout_weight=".70"
-                android:text="Name" />
-        </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dip">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Name:" />
 
-            <TextView
-                android:layout_width="0dp"
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_weight=".70"
+                        android:text="Name" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Phone:" />
+
+                    <EditText
+                        android:id="@+id/etPhone"
+                        android:layout_weight=".70"
+                        android:text="Phone" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Url:" />
+
+                    <EditText
+                        android:id="@+id/etUrl"
+                        android:layout_weight=".70"
+                        android:text="Url" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Email:" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_weight=".70"
+                        android:text="Url" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Favorite:" />
+
+                    <CheckBox
+                        android:id="@+id/cbFavorite"
+                        android:layout_weight=".70"
+                        android:checked="false" />
+                </TableRow>
+            </TableLayout>
+            //detail info
+
+            <RelativeLayout
+                android:id="@+id/btnBar"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight=".30"
-                android:text="Phone:" />
+                android:layout_below="@id/table"
+                android:padding="5dp"
+                android:layout_centerHorizontal="true"
+                >
 
-            <EditText
-                android:id="@+id/etPhone"
-                android:layout_weight=".70"
-                android:text="Phone" />
-        </TableRow>
+                <Button
+                    android:id="@+id/btnSms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="SMS" />
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dip">
+                <Button
+                    android:id="@+id/btnCall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/btnSms"
+                    android:text="Call" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".30"
-                android:text="Url:" />
+                <Button
+                    android:id="@+id/btnEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/btnCall"
+                    android:text="Email" />
 
-            <EditText
-                android:id="@+id/etUrl"
-                android:layout_weight=".70"
-                android:text="Url" />
-        </TableRow>
+                <Button
+                    android:id="@+id/btnBrowser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/btnEmail"
+                    android:text="Browser" />
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dip">
+                <Button
+                    android:id="@+id/btnCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnBrowser"
+                    android:text="Camera" />
+            </RelativeLayout>
+            //btn Bar
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".30"
-                android:text="Email:" />
 
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_weight=".70"
-                android:text="Url" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dip">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight=".30"
-                android:text="Favorite:" />
-
-            <CheckBox
-                android:id="@+id/cbFavorite"
-                android:layout_weight=".70"
-                android:checked="false" />
-        </TableRow>
-    </TableLayout> //detail info
-
+        </RelativeLayout>
+    </ScrollView> // scrollMain
     <RelativeLayout
-        android:id="@+id/btnBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/table"
-        android:padding="5dp">
-
-        <Button
-            android:id="@+id/btnSms"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:text="SMS" />
-
-        <Button
-            android:id="@+id/btnCall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/btnSms"
-            android:text="Call" />
-
-        <Button
-            android:id="@+id/btnEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/btnCall"
-            android:text="Email" />
-
-        <Button
-            android:id="@+id/btnBrowser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/btnEmail"
-            android:text="Browser" />
-    </RelativeLayout> //btn Bar
-
-    <RelativeLayout
+        android:id="@+id/btnBottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:background="@color/gray">
 
         <Button
             android:id="@+id/btnCancel"
@@ -167,5 +194,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:text="OK" />
-    </RelativeLayout>//btn bottom
+    </RelativeLayout>
+    //btn bottom
 </RelativeLayout>
