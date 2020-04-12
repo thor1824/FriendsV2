@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Client.Internal.Controller.CreateActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rlBtnContain">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray">
+
+            <RelativeLayout
+                android:id="@+id/rlImgContain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background1">
+
+                <ImageView
+                    android:id="@+id/ivNewProfile"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile_avatar_placeholder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Tab to change Picture" />
+
+            </RelativeLayout>
+            //detail picture
+
+            <TableLayout
+                android:id="@+id/table"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlImgContain"
+                android:layout_marginTop="@dimen/section_margin"
+                android:background="#ffffff">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Name:" />
+
+                    <EditText
+                        android:id="@+id/etNewName"
+                        android:layout_weight=".70"
+                        android:text="Name" />
+                </TableRow>
+                //name
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Address:" />
+
+                    <EditText
+                        android:id="@+id/etNewAddress"
+                        android:layout_weight=".70"
+                        android:text="Address" />
+                </TableRow>
+                //Address
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Phone:" />
+
+                    <EditText
+                        android:id="@+id/etNewPhone"
+                        android:layout_weight=".70"
+                        android:text="Phone" />
+                </TableRow>
+                //Phone
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".30"
+                        android:text="Email:" />
+
+                    <EditText
+                        android:id="@+id/etNewEmail"
+                        android:layout_weight=".70"
+                        android:text="Email" />
+                </TableRow>
+                //Email
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".37"
+                        android:text="Url:" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".28"
+                        android:text="http://www." />
+
+                    <EditText
+                        android:id="@+id/etNewUrl"
+                        android:layout_weight=".70"
+                        android:text="Url" />
+                </TableRow>
+                //WebPage
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/tableBD"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/table"
+                android:layout_marginTop="@dimen/section_margin"
+                android:background="#ffffff">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".30"
+                        android:text="BirthDay:" />
+
+                    <DatePicker
+                        android:id="@+id/dpNewBirthDay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".70"
+                        android:calendarViewShown="false"
+                        android:datePickerMode="spinner" />
+                </TableRow>
+            </TableLayout>
+
+            <TableLayout
+                android:id="@+id/tableLocation"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tableBD"
+                android:layout_marginTop="@dimen/section_margin"
+                android:background="#ffffff">
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".50"
+                        android:text="Latitude"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".50"
+                        android:text="Longitude"
+                        android:textSize="10dp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dip">
+
+                    <TextView
+                        android:id="@+id/tvLat"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".50"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/tvLong"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight=".50"
+                        android:text="0" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:padding="5dip">
+
+                    <Button
+                        android:id="@+id/btnGetLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/squardbutton"
+                        android:padding="3dp"
+                        android:text="Get Current Location"
+                        android:textColor="@color/buttonText" />
+                </TableRow>
+            </TableLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlBtnContain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray"
+        android:padding="15dp">
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/squardbutton"
+            android:text="Create"
+            android:textColor="@color/buttonText" />
+
+        <Button
+            android:id="@+id/btnCancelCre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/squardbutton"
+            android:text="Cancel"
+            android:textColor="@color/buttonText" />
+    </RelativeLayout>
+</RelativeLayout>

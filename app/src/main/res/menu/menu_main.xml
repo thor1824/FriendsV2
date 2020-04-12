@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    <item
+        android:id="@+id/orderBy_menu"
+        android:title="Order by.. "
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/name_item"
+                android:title="Name" />
+            <item
+                android:id="@+id/distance_item"
+                android:title="Distance" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/viewAs_menu"
+        android:title="View as.."
+        app:showAsAction="never">
+        <menu>
+            <item
+                android:id="@+id/listShow_item"
+                android:title="List"/>
+            <item
+                android:id="@+id/mapShow_item"
+                android:title="Map"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/import_item"
+        android:title="Import" />
+</menu>

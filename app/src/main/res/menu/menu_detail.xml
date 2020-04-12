@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/sms_item"
+        android:title="Send SMS" />
+    <item
+        android:id="@+id/call_item"
+        android:title="Call friend" />
+    <item
+        android:id="@+id/email_item"
+        android:title="Send Email" />
+    <item
+        android:id="@+id/webpage_item"
+        android:title="Visit WebPage" />
+    <item
+        android:id="@+id/pic_item"
+        android:title="Take picture" />
+    <item
+        android:id="@+id/map_item"
+        android:title="Show friend in Map" />
+    <item
+        android:id="@+id/del_item"
+        android:title="Delete Friend" />
+</menu>
